@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 class Animal:
 
     def __init__(self, kind, name, age):
@@ -26,6 +28,22 @@ class Animal:
         dog = cls('dog', name, age)
         dog.size = size
         return dog
+
+    @staticmethod
+    def year_ago():
+        return datetime.now() - timedelta(days=365)
+
+    @staticmethod
+    def two_years_ago():
+        return datetime.now() - timedelta(days=730.5)
+
+    def get_vaccinated(self):
+        if self.kind in ['dog', 'cat']:
+            if getattr(self, 'vaccination_date', self.two_years_ago()) < self.year_ago():
+                self.vaccination_date = datetime.now()
+        else:
+            print("We will not vaccinate your animal!")
+
 
 
 
