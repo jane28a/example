@@ -45,8 +45,6 @@ class Animal:
             print("We will not vaccinate your animal!")
 
 
-
-
 if __name__ == '__main__':
 
     the_dog = Animal.dog()
